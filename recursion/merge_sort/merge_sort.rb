@@ -13,13 +13,7 @@ def merge(left, right)
   result = []
 
   until left.empty? || right.empty?
-    if left.first <= right.first
-      result.push(left.first)
-      left.shift
-    else
-      result.push(right.first)
-      right.shift
-    end
+    left.first <= right.first ? result.push(left.shift) : result.push(right.shift)
   end
 
   result.concat(left) unless left.empty?
@@ -28,6 +22,6 @@ def merge(left, right)
   result
 end
 
-unsorted = [1, 3, 4, 2, 6, 5]
+unsorted = [1, 3, 4, 2, 6, 5, 3, 9, 1, 4]
 sorted = merge_sort(unsorted)
 puts sorted
