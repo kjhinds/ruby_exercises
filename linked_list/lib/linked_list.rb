@@ -53,7 +53,7 @@ class LinkedList
     removed_node = node.next_node
     node.next_node = nil
     @tail = node
-    @size -+ 1
+    @size -= 1
     removed_node
   end
 
