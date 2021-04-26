@@ -1,7 +1,7 @@
 require_relative 'node'
 
 class LinkedList
-  attr_accessor :name
+  attr_accessor :name, :size, :head, :tail
 
   def initialize
     @head = nil
@@ -21,18 +21,6 @@ class LinkedList
     @head.nil? ? @tail = node : node.next_node = @head
     @head = node
     @size += 1
-  end
-
-  def size
-    @size
-  end
-
-  def head
-    @head
-  end
-
-  def tail
-    @tail
   end
 
   def at(index)
