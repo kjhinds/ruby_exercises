@@ -14,8 +14,37 @@ class Tree
     root_node = Node.new(array[midpoint])
 
     root_node.left = build_tree(array[0...midpoint])
-    root_node.right = build_tree(array[midpoint+1..array.length])
+    root_node.right = build_tree(array[midpoint + 1..array.length])
 
     root_node
+  end
+
+  def find(root_node, value)
+    if root_node.nil? || root_node.value == value
+      root_node
+    elsif root_node.value < value
+      find(root_node.right, value)
+    else
+      find(root_node.left, value)
+    end
+  end
+
+  def insert(root_node, value)
+    if root_node.nil?
+      Node.new(value)
+    else
+      if root_node.value == value
+        root_node
+      elsif root_node.value < value
+        root_node.right = insert(root_node.right, value)
+      else
+        root_node.left = insert(root_node.left, value)
+      end
+      root_node
+    end
+  end
+
+  def delete(value)
+    
   end
 end
